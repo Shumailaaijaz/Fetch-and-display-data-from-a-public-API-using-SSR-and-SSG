@@ -2,20 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+/* Main container styling */
+.coin-market {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Container for coin blocks */
+.coin-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* Individual coin block styling */
+.coin-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 100px;
+  background-color: #712291;
+  border: 2px solid #eb3c3c;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(238, 182, 182, 0.1);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+/* Zoom-out animation on hover */
+.coin-block:hover {
+  transform: scale(2.1);
+}
+
+/* Animation to pop up with zoom effect */
+@keyframes zoomOut {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.coin-block {
+  animation: zoomOut 0.5s ease;
+}
+
+/* Additional styling for text inside blocks */
+.coin-block p:first-child {
+  
+  color: #007bff;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.coin-block p:last-child {
+  font-size: 18px;
+  color: #007bff;
+  margin-top: 5px;
 }
